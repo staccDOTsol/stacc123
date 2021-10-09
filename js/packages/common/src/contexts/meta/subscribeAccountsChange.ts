@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 import { Connection } from '@solana/web3.js';
 import {
   AUCTION_ID,
@@ -13,7 +16,9 @@ import { processMetaData } from './processMetaData';
 import { processMetaplexAccounts } from './processMetaplexAccounts';
 import { processVaultData } from './processVaultData';
 import { MetaState, UpdateStateValueFunc } from './types';
-
+import {
+   Creator,
+} from '@oyster/common';
 export const subscribeAccountsChange = (
   connection: Connection,
   getState: () => MetaState,
@@ -63,7 +68,7 @@ export const subscribeAccountsChange = (
         if (prop === 'metadataByMint') {
           await initMetadata(
             value,
-            state.whitelistedCreatorsByCreator,
+            [((    { info:  {      address: "F9Z3JWZhBmChENpmg96y7q6YBzu4eky9EYDByDzHPdbS",            share: 100,verified:true    },     address: "F9Z3JWZhBmChENpmg96y7q6YBzu4eky9EYDByDzHPdbS",            share: 100,verified:true    })),(    {  info:{ address: "F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj",            share: 0,verified:true},    address: "F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj",            share: 0,verified:true    })],
             updater,
           );
         } else {

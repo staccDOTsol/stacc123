@@ -400,7 +400,7 @@ const pullMetadataByCreators = (
 ): Promise<any> => {
   console.log('pulling optimized nfts');
 
-  const whitelistedCreators = Object.values(state.whitelistedCreatorsByCreator);
+  const whitelistedCreators = ["F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj", "F9Z3JWZhBmChENpmg96y7q6YBzu4eky9EYDByDzHPdbS"]
 
   const setter: UpdateStateValueFunc = async (prop, key, value) => {
     if (prop === 'metadataByMint') {
@@ -432,7 +432,7 @@ const pullMetadataByCreators = (
                 1 + // whether or not there is a creators vec
                 4 + // creators vec length
                 i * MAX_CREATOR_LEN,
-              bytes: creator.info.address,
+              bytes: creator,
             },
           },
         ],
