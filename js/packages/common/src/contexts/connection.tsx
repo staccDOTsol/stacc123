@@ -46,11 +46,6 @@ export const ENDPOINTS = [
     ChainId: ChainId.MainnetBeta,
   },
   {
-    name: 'mainnet-beta (Solana)' as ENV,
-    endpoint: 'https://fragrant-bitter-sound.solana-mainnet.quiknode.pro/8a6cee2a1b6d44f3ad57a2fbd3af1be61defc820/',
-    ChainId: ChainId.MainnetBeta,
-  },
-  {
     name: 'mainnet-beta (Serum)' as ENV,
     endpoint: 'https://solana-api.projectserum.com/',
     ChainId: ChainId.MainnetBeta,

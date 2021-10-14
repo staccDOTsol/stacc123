@@ -400,7 +400,7 @@ const pullMetadataByCreators = (
 ): Promise<any> => {
   console.log('pulling optimized nfts');
 
-  const whitelistedCreators = ["F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj", "F9Z3JWZhBmChENpmg96y7q6YBzu4eky9EYDByDzHPdbS"]
+  const whitelistedCreators = ['F9Z3JWZhBmChENpmg96y7q6YBzu4eky9EYDByDzHPdbS']; //"F9fER1Cb8hmjapWGZDukzcEYshAUDbSFpbXkj9QuBaQj",
 
   const setter: UpdateStateValueFunc = async (prop, key, value) => {
     if (prop === 'metadataByMint') {
@@ -494,7 +494,7 @@ export const metadataByMintUpdater = async (
     state.metadataByMint[key] = metadata;
     state.metadata.push(metadata);
   } else {
-    delete state.metadataByMint[key];
+    //delete state.metadataByMint[key];
   }
   return state;
 };
@@ -504,13 +504,13 @@ export const initMetadata = async (
   whitelistedCreators: Record<string, ParsedAccount<WhitelistedCreator>>,
   setter: UpdateStateValueFunc,
 ) => {
-  if (isMetadataPartOfStore(metadata, whitelistedCreators)) {
-    await metadata.info.init();
-    setter('metadataByMint', metadata.info.mint, metadata);
-    setter('metadata', '', metadata);
-    const masterEditionKey = metadata.info?.masterEdition;
-    if (masterEditionKey) {
-      setter('metadataByMasterEdition', masterEditionKey, metadata);
-    }
+  //  if (isMetadataPartOfStore(metadata, whitelistedCreators)) {
+  await metadata.info.init();
+  setter('metadataByMint', metadata.info.mint, metadata);
+  setter('metadata', '', metadata);
+  const masterEditionKey = metadata.info?.masterEdition;
+  if (masterEditionKey) {
+    setter('metadataByMasterEdition', masterEditionKey, metadata);
   }
+  //  }
 };

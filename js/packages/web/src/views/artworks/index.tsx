@@ -30,7 +30,18 @@ export const ArtworksView = () => {
     700: 2,
     500: 1,
   };
+  let goodgood = []
+  for (var v in metadata){
+    console.log(metadata[v].info.data.name)
+    if (metadata[v].info.data.name.indexOf('JareAI') != -1){
+     goodgood.push(metadata[v].info.mint)
+    }
 
+  }
+ 
+  //console.log(minters)
+  console.log(goodgood)
+  console.log(goodgood.length)
   const items =
     activeKey === ArtworkViewState.Owned
       ? ownedMetadata.map(m => m.metadata)
